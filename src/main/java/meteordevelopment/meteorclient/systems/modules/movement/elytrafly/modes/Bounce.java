@@ -136,8 +136,8 @@ public class Bounce extends ElytraFlightMode {
     @Override
     public void onActivate() {
         prevFov = mc.options.getFovEffectScale().getValue();
-        error("This module has been removed in meteorlite.");
-        toggle();
+        elytraFly.error("This module has been removed in meteorlite.");
+        elytraFly.toggle();
     }
 
 

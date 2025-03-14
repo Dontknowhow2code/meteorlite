@@ -23,8 +23,8 @@ public class Packet extends ElytraFlightMode {
 
     @Override
     public void onDeactivate() {
-        error("This module has been removed in meteorlite.");
-        toggle();
+        elytraFly.error("This module has been removed in meteorlite.");
+        elytraFly.toggle();
         mc.player.getAbilities().flying = false;
         mc.player.getAbilities().allowFlying = false;
     }

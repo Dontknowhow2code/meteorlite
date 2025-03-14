@@ -148,8 +148,6 @@ public class DiscordPresence extends Module {
 
         error("This module has been removed in meteorlite.");
         toggle();
-        close();
-
         DiscordIPC.start(835240968533049424L, null);
 
         rpc.setStart(System.currentTimeMillis() / 1000L);

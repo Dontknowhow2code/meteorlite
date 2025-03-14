@@ -17,6 +17,5 @@ public class BetterBeacons extends Module {
     public void onActivate() {
         error("This module has been removed in meteorlite.");
         toggle();
-        close();
     }
 }

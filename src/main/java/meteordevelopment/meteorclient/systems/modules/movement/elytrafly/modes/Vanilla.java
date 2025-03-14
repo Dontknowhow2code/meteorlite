@@ -15,8 +15,7 @@ public class Vanilla extends ElytraFlightMode {
     
     @Override
     public void onActivate() {
-        error("This module has been removed in meteorlite.");
-        toggle();
-        close();
+        elytraFly.error("This module has been removed in meteorlite.");
+        elytraFly.toggle();
     }
 }
