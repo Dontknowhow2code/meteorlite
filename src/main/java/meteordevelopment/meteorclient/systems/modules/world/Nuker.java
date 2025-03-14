@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -262,6 +262,8 @@ public class Nuker extends Module {
 
     @Override
     public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
         firstBlock = true;
         timer = 0;
         noBlockTimer = 0;
@@ -307,7 +309,7 @@ public class Nuker extends Module {
         int r = (int) Math.round(range.get());
 
         if (shape.get() == Shape.UniformCube) {
-            pX_ += 1; // weired position stuff
+            pX_ += 1; // weird position stuff
             pos1.set(pX_ - r, pY - r + 1, pZ - r + 1); // down
             pos2.set(pX_ + r - 1, pY + r, pZ + r); // up
         } else {

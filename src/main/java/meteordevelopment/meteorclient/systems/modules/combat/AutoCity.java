@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -141,6 +141,9 @@ public class AutoCity extends Module {
 
     @Override
     public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
+
         target = TargetUtils.getPlayerTarget(targetRange.get(), SortPriority.ClosestAngle);
         if (TargetUtils.isBadTarget(target, targetRange.get())) {
             if (chatInfo.get()) error("Couldn't find a target, disabling.");

@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -27,5 +27,11 @@ public class Multitask extends Module {
 
     public boolean attackingEntities() {
         return isActive() && attackingEntities.get();
+    }
+
+    @Override
+    public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
     }
 }

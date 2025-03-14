@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -62,5 +62,11 @@ public class Hitboxes extends Module {
     private boolean testWeapon() {
         if (!onlyOnWeapon.get()) return true;
         return InvUtils.testInHands(itemStack -> itemStack.getItem() instanceof SwordItem || itemStack.getItem() instanceof AxeItem);
+    }
+
+    @Override
+    public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
     }
 }

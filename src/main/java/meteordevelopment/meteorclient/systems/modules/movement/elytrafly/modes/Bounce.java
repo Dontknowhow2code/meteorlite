@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -136,7 +136,10 @@ public class Bounce extends ElytraFlightMode {
     @Override
     public void onActivate() {
         prevFov = mc.options.getFovEffectScale().getValue();
+        error("This module has been removed in meteorlite.");
+        toggle();
     }
+
 
     @Override
     public void onDeactivate() {

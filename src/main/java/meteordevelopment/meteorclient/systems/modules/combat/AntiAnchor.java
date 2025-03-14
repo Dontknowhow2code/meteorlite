@@ -1,8 +1,7 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
-
 package meteordevelopment.meteorclient.systems.modules.combat;
 
 import meteordevelopment.meteorclient.events.world.TickEvent;
@@ -19,39 +18,46 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.SlabBlock;
 
 public class AntiAnchor extends Module {
+
     private final SettingGroup sgGeneral = settings.getDefaultGroup();
 
     private final Setting<Boolean> rotate = sgGeneral.add(new BoolSetting.Builder()
-        .name("rotate")
-        .description("Makes you rotate when placing.")
-        .defaultValue(true)
-        .build()
+            .name("rotate")
+            .description("Makes you rotate when placing.")
+            .defaultValue(true)
+            .build()
     );
 
     private final Setting<Boolean> swing = sgGeneral.add(new BoolSetting.Builder()
-        .name("swing")
-        .description("Swings your hand when placing.")
-        .defaultValue(true)
-        .build()
+            .name("swing")
+            .description("Swings your hand when placing.")
+            .defaultValue(true)
+            .build()
     );
 
     public AntiAnchor() {
         super(Categories.Combat, "anti-anchor", "Automatically prevents Anchor Aura by placing a slab on your head.");
     }
 
+    @Override
+    public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
+    }
+
     @EventHandler
     private void onTick(TickEvent.Pre event) {
         if (mc.world.getBlockState(mc.player.getBlockPos().up(2)).getBlock() == Blocks.RESPAWN_ANCHOR
-            && mc.world.getBlockState(mc.player.getBlockPos().up()).getBlock() == Blocks.AIR) {
+                && mc.world.getBlockState(mc.player.getBlockPos().up()).getBlock() == Blocks.AIR) {
 
             BlockUtils.place(
-                mc.player.getBlockPos().add(0, 1, 0),
-                InvUtils.findInHotbar(itemStack -> Block.getBlockFromItem(itemStack.getItem()) instanceof SlabBlock),
-                rotate.get(),
-                15,
-                swing.get(),
-                false,
-                true
+                    mc.player.getBlockPos().add(0, 1, 0),
+                    InvUtils.findInHotbar(itemStack -> Block.getBlockFromItem(itemStack.getItem()) instanceof SlabBlock),
+                    rotate.get(),
+                    15,
+                    swing.get(),
+                    false,
+                    true
             );
         }
     }

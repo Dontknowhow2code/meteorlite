@@ -1,5 +1,5 @@
 /*
- * This file is part of the Meteor Client distribution (https://github.com/MeteorDevelopment/meteor-client).
+ * This file is part of the Meteorlite Client tribution based off of Meteor Client, which can be found at: https://github.com/MeteorDevelopment/meteor-client.
  * Copyright (c) Meteor Development.
  */
 
@@ -56,5 +56,11 @@ public class PotionSaver extends Module {
 
     public boolean shouldFreeze(StatusEffect effect) {
         return isActive() && (!onlyWhenStationary.get() || !PlayerUtils.isMoving()) && !mc.player.getStatusEffects().isEmpty() && effects.get().contains(effect);
+    }
+
+    @Override
+    public void onActivate() {
+        error("This module has been removed in meteorlite.");
+        toggle();
     }
 }
