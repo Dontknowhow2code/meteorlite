@@ -21,6 +21,7 @@ import meteordevelopment.meteorclient.systems.modules.Modules;
 import meteordevelopment.meteorclient.utils.misc.NbtUtils;
 import net.minecraft.item.Items;
 
+import java.util.stream.Collectors;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -29,6 +30,32 @@ import static meteordevelopment.meteorclient.utils.Utils.getWindowHeight;
 import static meteordevelopment.meteorclient.utils.Utils.getWindowWidth;
 
 public class ModulesScreen extends TabScreen {
+
+    private static final Set<String> allowedModules = Set.of(
+    "break-indicators", "camera-tweaks", "city-esp", "entity-owner",
+    "free-look", "freecam", "fullbright", "hand-view", "item-highlight",
+    "item-physics", "light-overlay", "logout-spots", "marker", "nametags",
+    "no-render", "pop-chams", "time-changer", "tracers", "trail",
+    "trajectories", "void-esp", "waypoints", "zoom", "ambience",
+    "auto-breed", "auto-brewer", "auto-mount", "auto-nametag",
+    "auto-shearer", "auto-sign", "auto-smelter", "collisions",
+    "enderman-look", "flamethrower", "highway-builder", "liquid-filler",
+    "no-ghost-blocks", "packet-mine", "spawn-proofer", "anti-packet-kick",
+    "auto-reconnect", "better-chat", "book-bot", "inventory-tweaks",
+    "message-aura", "notebot", "notifier", "packet-canceller",
+    "server-spoof", "sound-blocker", "auto-armor", "auto-exp", "auto-log",
+    "auto-totem", "auto-weapon", "offhand", "self-anvil", "self-web",
+    "air-place", "anti-afk", "auto-clicker", "auto-eat", "auto-fish",
+    "auto-gap", "auto-mend", "auto-replenish", "auto-respawn",
+    "auto-tool", "break-delay", "chest-swap", "exp-thrower",
+    "fake-player", "fast-use", "liquid-interact", "middle-click-extra",
+    "name-protect", "no-interact", "no-mining-trace", "portals",
+    "rotation", "speed-mine", "auto-jump", "auto-walk", "blink",
+    "elytra-fly", "gui-move", "parkour", "safe-walk", "sneak", "sprint",
+    "better-tab", "better-tooltips", "block-selection", "blur",
+    "boss-stack", "breadcrumbs"
+    );
+
     private WCategoryController controller;
 
     public ModulesScreen(GuiTheme theme) {
@@ -79,8 +106,11 @@ public class ModulesScreen extends TabScreen {
 
     protected void createSearchW(WContainer w, String text) {
         if (!text.isEmpty()) {
+            
             // Titles
-            Set<Module> modules = Modules.get().searchTitles(text);
+            Set<Module> modules = Modules.get().searchTitles(text).stream()
+                .filter(module -> allowedModules.contains(module.name))
+                .collect(Collectors.toSet());
 
             if (!modules.isEmpty()) {
                 WSection section = w.add(theme.section("Modules")).expandX().widget();
@@ -95,7 +125,9 @@ public class ModulesScreen extends TabScreen {
             }
 
             // Settings
-            modules = Modules.get().searchSettingTitles(text);
+            modules = Modules.get().searchSettingTitles(text).stream()
+                .filter(module -> allowedModules.contains(module.name))
+                .collect(Collectors.toSet());
 
             if (!modules.isEmpty()) {
                 WSection section = w.add(theme.section("Settings")).expandX().widget();
@@ -110,6 +142,7 @@ public class ModulesScreen extends TabScreen {
             }
         }
     }
+
 
     protected WWindow createSearch(WContainer c) {
         WWindow w = theme.window("Search");
@@ -205,7 +238,7 @@ public class ModulesScreen extends TabScreen {
             List<Module> moduleList = new ArrayList<>();
             for (Category category : Modules.loopCategories()) {
                 for (Module module : Modules.get().getGroup(category)) {
-                    if (!Config.get().hiddenModules.get().contains(module)) {
+                    if (!Config.get().hiddenModules.get().contains(module) && allowedModules.contains(module.name)) {
                         moduleList.add(module);
                     }
                 }

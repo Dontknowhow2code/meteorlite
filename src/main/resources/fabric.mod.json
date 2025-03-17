@@ -1,19 +1,21 @@
 {
   "schemaVersion": 1,
-  "name": "Meteor Client",
+  "name": "MeteorLite Client",
   "id": "meteor-client",
   "version": "${version}",
-  "description": "Based utility mod.",
+  "description": "Based AND ETHICAL utility mod.",
   "authors": [
     "MineGame159",
     "squidoodly",
-    "seasnail"
+    "seasnail",
+    "Meteor Client Contributors",
+    "Me"
   ],
   "contact": {
     "homepage": "https://meteorclient.com",
     "issues": "https://github.com/MeteorDevelopment/meteor-client/issues",
-    "sources": "https://github.com/MeteorDevelopment/meteor-client",
-    "discord": "https://meteorclient.com/discord"
+    "sources": "https://github.com/Dontknowhow2code/meteorlite",
+    "discord": "dick"
   },
   "license": "GPL-3.0",
   "icon": "assets/meteor-client/icon.png",
@@ -47,7 +49,9 @@
   },
   "depends": {
     "java": ">=21",
-    "minecraft": ["${minecraft_version}"],
+    "minecraft": [
+      "${minecraft_version}"
+    ],
     "fabricloader": ">=${loader_version}"
   },
   "breaks": {
