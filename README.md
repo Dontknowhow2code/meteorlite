@@ -17,6 +17,12 @@
     <img src="https://img.shields.io/endpoint?url=https://ghloc.vercel.app/api/MeteorDevelopment/meteor-client/badge?filter=.java$&label=lines%20of%20code&color=blue" alt="GitHub lines of code"/>
 </div>
 
+## CURRENT KNOWN PROBLEMS:
+- Search doesn't work
+- Still called meteor in multiple places
+- Modules are still in code
+
+
 ## Usage
 
 ### Building
