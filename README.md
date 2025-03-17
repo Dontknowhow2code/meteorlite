@@ -1,10 +1,10 @@
 
 <p align="center">
-<img src="https://meteorclient.com/icon.png" alt="meteor-client-logo" width="15%"/>
+<img src="https://github.com/Dontknowhow2code/meteorlite/blob/master/src/main/resources/assets/meteor-client/icon.png" alt="meteorlite-client-logo" width="15%"/>
 </p>
 
-<h1 align="center">Meteor</h1>
-<p align="center">A Minecraft Fabric Utility Mod for anarchy servers.</p>
+<h1 align="center">Meteorlite</h1>
+<p align="center">An Ethical Minecraft Fabric Utility Mod Based off of Meteor for Technical Minecraft.</p>
 
 <div align="center">
     <a href="https://discord.gg/bBGQZvd"><img src="https://img.shields.io/discord/689197705683140636?logo=discord" alt="Discord"/></a>
