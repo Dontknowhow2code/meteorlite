@@ -5,13 +5,13 @@
 
 package meteordevelopment.meteorclient.mixin;
 
-import net.minecraft.client.gl.VertexBuffer;
-import net.minecraft.client.render.BufferRenderer;
+import net.minecraft.client.render.item.ItemRenderState;
+import net.minecraft.client.render.model.json.Transformation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Mixin(BufferRenderer.class)
-public interface BufferRendererAccessor {
-    @Accessor("currentVertexBuffer")
-    static void setCurrentVertexBuffer(VertexBuffer vertexBuffer) {}
+@Mixin(ItemRenderState.LayerRenderState.class)
+public interface LayerRenderStateAccessor {
+    @Accessor
+    Transformation getTransform();
 }

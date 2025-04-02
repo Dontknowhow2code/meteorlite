@@ -1,7 +1,7 @@
 plugins {
-    id("fabric-loom") version "1.9-SNAPSHOT"
+    id("fabric-loom") version "1.10-SNAPSHOT"
     id("maven-publish")
-    id("com.gradleup.shadow") version "9.0.0-beta4"
+    id("com.gradleup.shadow") version "9.0.0-beta11"
 }
 
 base {
@@ -155,6 +155,8 @@ tasks {
 
     withType<JavaCompile> {
         options.release = 21
+        options.compilerArgs.add("-Xlint:deprecation")
+        options.compilerArgs.add("-Xlint:unchecked")
     }
 
     shadowJar {
